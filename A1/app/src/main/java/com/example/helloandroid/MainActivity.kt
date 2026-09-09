@@ -1,20 +1,29 @@
 package com.example.helloandroid
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.helloandroid.databinding.ActivityMainBinding
 
+/**
+ * Single entry point for the app. Hosts every fragment inside one container
+ * and is responsible only for showing the initial screen.
+ */
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Only add the menu fragment on a fresh launch. After a rotation the
+        // fragment manager restores it automatically, and adding it again
+        // would stack a duplicate copy on top of the existing one.
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ButtonMenuFragment())
+                .commit()
         }
     }
 }

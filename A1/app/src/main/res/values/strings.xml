@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HelloAndroid</string>
+    <string name="menu_prompt">Pick an option</string>
+    <string name="option_pizza">Pizza</string>
+    <string name="option_tacos">Tacos</string>
+    <string name="option_sushi">Sushi</string>
+    <string name="option_burgers">Burgers</string>
+    <string name="option_ramen">Ramen</string>
+    <string name="selection_message">You picked: %1$s</string>
+    <string name="back_to_menu">Back to menu</string>
 </resources>
