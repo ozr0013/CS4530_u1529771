@@ -12,3 +12,5 @@ Custom Material 3 "Ocean" theme applied to the `ThemePractice` project
   `secondaryContainer`.
 
 ## Snapshots
+
+![Theme Practice Snapshot](snapshot.png)
